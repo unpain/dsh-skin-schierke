@@ -1,0 +1,4 @@
+# Registers this browser-only skin with the DSH web profile.
+- insert:
+    - id: ui-skin-schierke-interface
+      name: 'dsh-skin-schierke'

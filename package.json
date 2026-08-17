@@ -1,0 +1,60 @@
+{
+  "name": "dsh-skin-schierke",
+  "description": "Schierke forest-spirit grimoire interface skin for the DSH web UI",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./skin.json": "./skin.json",
+    "./package.json": "./package.json"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "inject": [
+        "dsh-skin-switch"
+      ],
+      "platform": "web"
+    }
+  },
+  "scripts": {
+    "assets:embed": "node scripts/embed-art.mjs",
+    "build": "node scripts/sync-client-bundle.mjs",
+    "build:check": "node scripts/sync-client-bundle.mjs --check",
+    "test": "vitest run"
+  },
+  "license": "MIT",
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "^4.0.1",
+    "dsh-skin-switch": "0.1.0"
+  },
+  "peerDependenciesMeta": {
+    "dsh-skin-switch": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@deepseek-ai/cordis": "^4.0.1",
+    "jsdom": "29.1.1",
+    "vitest": "4.1.10"
+  },
+  "files": [
+    "assets",
+    "lib",
+    "preview",
+    "scripts",
+    "shared",
+    "src",
+    "tests",
+    "cordis.patch.yml",
+    "skin.json",
+    "README.md",
+    "LICENSE",
+    "NOTICE"
+  ]
+}
