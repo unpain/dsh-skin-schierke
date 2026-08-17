@@ -152,8 +152,8 @@ body[data-dsh-schierke-interface] [data-schierke-motes] {
 }
 
 body[data-dsh-schierke-interface]:has(:is([data-phase='active'][data-chat-flow], [data-phase='active'] [data-chat-flow])) [data-skin-artwork] {
-  opacity: 0.1;
-  filter: saturate(0.45) drop-shadow(-10px 12px 20px rgba(16, 25, 20, 0.24));
+  opacity: 0.15;
+  filter: saturate(0.58) drop-shadow(-10px 12px 20px rgba(16, 25, 20, 0.24));
   transform: translateX(18%) scale(0.94);
 }
 
@@ -518,6 +518,10 @@ body[data-dsh-schierke-interface] ::-webkit-scrollbar-thumb {
     right: 42px;
     width: 560px;
   }
+
+  body[data-dsh-schierke-interface]:has(:is([data-phase='active'][data-chat-flow], [data-phase='active'] [data-chat-flow])) [data-skin-artwork] {
+    opacity: 0.1;
+  }
 }
 
 @media (max-width: 880px) {
@@ -536,6 +540,10 @@ body[data-dsh-schierke-interface] ::-webkit-scrollbar-thumb {
 
   body[data-dsh-schierke-interface] [data-phase='hero'] {
     --dsh-chat-content-width: min(90vw, 680px);
+  }
+
+  body[data-dsh-schierke-interface]:has(:is([data-phase='active'][data-chat-flow], [data-phase='active'] [data-chat-flow])) [data-skin-artwork] {
+    opacity: 0.08;
   }
 }
 
@@ -558,6 +566,10 @@ body[data-dsh-schierke-interface] ::-webkit-scrollbar-thumb {
 
   body[data-dsh-schierke-interface] [data-composer-card]::before {
     left: 13px;
+  }
+
+  body[data-dsh-schierke-interface]:has(:is([data-phase='active'][data-chat-flow], [data-phase='active'] [data-chat-flow])) [data-skin-artwork] {
+    opacity: 0.05;
   }
 }
 

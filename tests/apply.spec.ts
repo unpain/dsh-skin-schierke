@@ -150,4 +150,13 @@ describe('Schierke Astral Grimoire interface skin', () => {
     expect(SKIN_ART.length).toBeGreaterThan(100_000)
     expect(SKIN_ART).not.toContain('http')
   })
+
+  it('keeps active-chat artwork recognizable on wide screens and progressively quieter on narrow screens', () => {
+    expect(SKIN_CSS).toContain(":has(:is([data-phase='active'][data-chat-flow], [data-phase='active'] [data-chat-flow])) [data-skin-artwork]")
+    expect(SKIN_CSS).toContain('opacity: 0.15;')
+    expect(SKIN_CSS).toContain('saturate(0.58)')
+    expect(SKIN_CSS).toContain('opacity: 0.1;')
+    expect(SKIN_CSS).toContain('opacity: 0.08;')
+    expect(SKIN_CSS).toContain('opacity: 0.05;')
+  })
 })
