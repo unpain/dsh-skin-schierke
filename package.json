@@ -1,7 +1,7 @@
 {
   "name": "dsh-skin-schierke",
-  "description": "Schierke forest-spirit grimoire interface skin for the DSH web UI",
-  "version": "0.1.2",
+  "description": "Schierke living field-folio interface skin for the DSH Web UI",
+  "version": "0.2.0",
   "private": true,
   "type": "module",
   "main": "lib/index.js",
@@ -44,6 +44,7 @@
     "vitest": "4.1.10"
   },
   "files": [
+    "design-brief.md",
     "assets",
     "lib",
     "preview",

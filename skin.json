@@ -3,8 +3,8 @@
   "name": "史尔基 · 灵界魔导书",
   "nameEn": "Schierke · Astral Grimoire",
   "author": "yujimaka",
-  "tagline": "紫袍、森之灵与羊皮纸魔导书界面",
-  "description": "一套为 DSH Web UI 打造的史尔基主题皮肤：以森林灵界、紫色魔女袍、羊皮纸层次与克制的魔法阵构成整套界面，并在对话开始后让角色立绘自然退到阅读区之外。",
+  "tagline": "双页灵界魔导书、章节书签与页边批注界面",
+  "description": "一套为 DSH Web UI 打造的史尔基主题皮肤：以展开的双页魔导书、布面章节索引、观察札记、附录弹层和收纳式角色图版构成界面，并在长对话中保持清晰的阅读秩序。",
   "tags": [
     "anime",
     "berserk",
