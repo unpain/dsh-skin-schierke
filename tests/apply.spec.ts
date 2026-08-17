@@ -108,10 +108,10 @@ describe('Schierke Astral Grimoire interface skin', () => {
   })
 
   it('registers without changing the page before selection', () => {
-    let registered: { id: string; name: string } | undefined
+    let registered: { id: string; name: string; author: string } | undefined
     const ctx = {
       skinManager: {
-        register(definition: { id: string; name: string }) {
+        register(definition: { id: string; name: string; author: string }) {
           registered = definition
           return () => undefined
         },
@@ -122,7 +122,7 @@ describe('Schierke Astral Grimoire interface skin', () => {
     }
 
     apply(ctx as never)
-    expect(registered).toMatchObject({ id: 'dsh-skin-schierke', name: '史尔基 · 灵界魔导书' })
+    expect(registered).toMatchObject({ id: 'dsh-skin-schierke', name: '史尔基 · 灵界魔导书', author: 'yujimaka' })
     expect(document.body.hasAttribute('data-dsh-schierke-interface')).toBe(false)
   })
 
