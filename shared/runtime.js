@@ -19,18 +19,30 @@ function createOwned(tag, chrome) {
   return node
 }
 
-function createArtworkStage() {
-  const stage = createOwned('div', 'schierke-artwork-stage')
-  const sigil = document.createElement('span')
-  const motes = document.createElement('span')
+function createFolioStage() {
+  const stage = createOwned('div', 'schierke-folio-stage')
+  const spread = document.createElement('span')
+  const gutter = document.createElement('span')
+  const marginalia = document.createElement('span')
+  const bookmark = document.createElement('span')
+  const plate = document.createElement('figure')
   const artwork = document.createElement('img')
+  const caption = document.createElement('figcaption')
   stage.setAttribute('aria-hidden', 'true')
-  sigil.dataset.schierkeSigil = ''
-  motes.dataset.schierkeMotes = ''
+  spread.dataset.schierkeSpread = ''
+  gutter.dataset.schierkeGutter = ''
+  marginalia.dataset.schierkeMarginalia = ''
+  marginalia.textContent = 'HERBAL · ASTRAL · CODEX'
+  bookmark.dataset.schierkeBookmark = ''
+  bookmark.textContent = 'FOLIO VII'
+  plate.dataset.schierkePlate = ''
   artwork.dataset.skinArtwork = ''
   artwork.alt = ''
   artwork.src = SKIN_ART
-  stage.append(sigil, motes, artwork)
+  caption.dataset.schierkePlateCaption = ''
+  caption.textContent = 'PLATE VII · INTERSTICE GUIDE'
+  plate.append(artwork, caption)
+  stage.append(spread, gutter, marginalia, bookmark, plate)
   return { stage, artwork }
 }
 
@@ -38,12 +50,6 @@ function createStylesheet() {
   const style = createOwned('style', 'schierke-styles')
   style.textContent = SKIN_CSS
   return style
-}
-
-function createAccentRail() {
-  const rail = createOwned('div', 'schierke-accent-rail')
-  rail.setAttribute('aria-hidden', 'true')
-  return rail
 }
 
 function createFavicon() {
@@ -82,7 +88,7 @@ function decorateTitlebar(ownedNodes) {
   const titlebar = document.querySelector("[class*='titlebar']")
   if (!titlebar || titlebar.querySelector("[data-skin-chrome='schierke-titlebar-brand']")) return
   const brand = createOwned('span', 'schierke-titlebar-brand')
-  brand.textContent = 'ASTRAL GRIMOIRE · SCHIERKE'
+  brand.textContent = 'CODEX SCHIERKE · FIELD FOLIO'
   brand.setAttribute('aria-hidden', 'true')
   ownedNodes.add(brand)
   titlebar.prepend(brand)
@@ -191,10 +197,10 @@ export function activateSkin(ctx) {
   body.setAttribute(BODY_ATTRIBUTE, '')
   faviconState = installFavicon()
   ownedNodes.add(faviconState.favicon)
-  const artworkStage = createArtworkStage()
-  artwork = artworkStage.artwork
+  const folioStage = createFolioStage()
+  artwork = folioStage.artwork
   artwork.addEventListener('load', onArtworkLoad)
-  for (const node of [createStylesheet(), artworkStage.stage, createAccentRail()]) {
+  for (const node of [createStylesheet(), folioStage.stage]) {
     ownedNodes.add(node)
     if (node instanceof HTMLStyleElement) document.head.append(node)
     else body.prepend(node)

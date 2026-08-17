@@ -17,7 +17,7 @@
     [data-pane='sidebar'] { min-width: 0; }
     [data-pane='sidebar'] > div { height: 100%; padding: 24px 14px; }
     .brand { display: flex; align-items: center; gap: 10px; margin-bottom: 22px; color: inherit; }
-    .brand-mark { display: grid; place-items: center; width: 34px; height: 34px; border: 1px solid currentColor; border-radius: 50%; }
+    .brand-mark { display: grid; place-items: center; width: 34px; height: 34px; border: 1px solid currentColor; }
     .brand-copy strong, .brand-copy small { display: block; }
     .brand-copy small { margin-top: 3px; opacity: .54; font-size: 10px; letter-spacing: .12em; }
     .newSession { width: 100%; padding: 11px 14px; border: 0; cursor: pointer; }
@@ -31,31 +31,38 @@
     .tabActive { padding: 17px 0 15px; border: 0; border-bottom: 2px solid; color: inherit; background: transparent; }
     .header-note { font: 10px ui-monospace, monospace; letter-spacing: .1em; opacity: .62; }
     [data-phase] { position: relative; height: calc(100% - 56px); padding: clamp(42px, 8vh, 90px) clamp(28px, 6vw, 94px) 36px; }
-    .hero-copy { position: relative; z-index: 4; width: min(47vw, 670px); }
+    .hero-copy { position: relative; z-index: 4; width: min(43vw, 620px); }
     .eyebrow { margin-bottom: 13px; color: var(--schierke-sage); font: 700 10px/1 ui-monospace, monospace; letter-spacing: .16em; }
-    .headline { max-width: 660px; margin: 0; font-size: clamp(42px, 5.1vw, 78px); line-height: .98; }
+    .headline { max-width: 620px; margin: 0; font-size: clamp(42px, 4.7vw, 72px); line-height: .98; }
     .lede { max-width: 590px; margin: 19px 0 31px; color: var(--dsw-alias-label-secondary); font-size: 14px; line-height: 1.7; }
     [data-composer-card] { position: relative; width: min(100%, 690px); min-height: 150px; padding: 27px 22px 17px; }
     textarea { width: 100%; height: 68px; resize: none; border: 0; outline: 0; color: var(--dsw-alias-label-primary); background: transparent; }
     .composer-tools { display: flex; justify-content: space-between; align-items: center; }
     .tool-row { display: flex; gap: 7px; }
-    .composer-tools button { min-width: 34px; height: 34px; border: 1px solid var(--dsw-alias-border-l2); border-radius: 9px; color: var(--dsw-alias-label-secondary); background: var(--dsw-alias-button-elevated-fill); }
+    .selector-row { display: flex; align-items: center; gap: 8px; margin-left: auto; margin-right: 10px; }
+    .selector-row button { width: auto; padding-inline: 10px; }
+    .composer-tools button { min-width: 34px; height: 34px; border: 1px solid var(--dsw-alias-border-l2); color: var(--dsw-alias-label-secondary); background: var(--dsw-alias-button-elevated-fill); }
     .composer-tools button.primary { min-width: 82px; color: white; }
+    .composer-listbox { display: none; position: absolute; right: 88px; bottom: 50px; width: 270px; padding: 8px; color: var(--dsw-alias-label-primary); background: var(--dsw-specific-selector); }
+    .composer-listbox.is-open { display: block; }
+    .composer-listbox.effort-list { right: 300px; width: 160px; }
+    .composer-listbox [role='option'] { padding: 11px 13px; font-size: 13px; }
     .qa-strip { position: absolute; right: 22px; bottom: 18px; z-index: 10; display: flex; gap: 7px; }
-    .qa-strip button { padding: 7px 10px; border: 1px solid var(--dsw-alias-border-l2); border-radius: 8px; color: var(--dsw-alias-label-secondary); background: var(--dsw-alias-button-floating-fill); font-size: 10px; cursor: pointer; }
-    .menu-popover { display: none; position: fixed; right: 24px; bottom: 58px; z-index: 44; width: 190px; padding: 7px; border: 1px solid; border-radius: 11px; color: var(--dsw-alias-label-primary); background: var(--dsw-alias-bg-overlay); }
+    body[data-qa-capture] .qa-strip { display: none; }
+    .qa-strip button { padding: 7px 10px; border: 1px solid var(--dsw-alias-border-l2); color: var(--dsw-alias-label-secondary); background: var(--dsw-alias-button-floating-fill); font-size: 10px; cursor: pointer; }
+    .menu-popover { display: none; position: fixed; right: 24px; bottom: 58px; z-index: 44; width: 190px; padding: 7px; border: 1px solid; color: var(--dsw-alias-label-primary); background: var(--dsw-alias-bg-overlay); }
     .menu-popover.is-open { display: block; }
     .menu-popover [role='menuitem'] { padding: 10px 12px; border-radius: 7px; font-size: 12px; }
     .active-chat { display: none; position: relative; z-index: 4; width: min(760px, 70vw); margin: 0 auto; }
     .active-chat .bubble { width: fit-content; max-width: 70%; margin: 0 0 28px auto; padding: 13px 16px; }
     .answer { color: var(--dsw-alias-label-primary); font-size: 14px; line-height: 1.72; }
     .reasoning { margin: 18px 0; padding: 12px 16px; border-left: 3px solid; color: var(--dsw-alias-label-secondary); }
-    [data-terminal] { margin-top: 18px; padding: 16px; border-radius: 10px; font: 12px/1.65 ui-monospace, monospace; }
+    [data-terminal] { margin-top: 18px; padding: 16px; font: 12px/1.65 ui-monospace, monospace; }
     body.is-active .hero-copy { display: none; }
     body.is-active .active-chat { display: block; }
     .settings { display: none; position: fixed; inset: 0; z-index: 50; place-items: center; background: rgba(8, 13, 10, .48); }
     .settings.is-open { display: grid; }
-    .settings [role='dialog'] { width: min(720px, 88vw); padding: 28px; border: 1px solid; border-radius: 14px; }
+    .settings [role='dialog'] { width: min(720px, 88vw); padding: 28px; border: 1px solid; }
     .settings h2 { margin: 0 0 6px; font-family: Georgia, serif; }
     .settings p { color: var(--dsw-alias-label-secondary); }
     .setting-row { display: flex; justify-content: space-between; margin-top: 22px; padding: 18px; background: var(--dsw-alias-bg-layer-2); }
@@ -75,23 +82,23 @@
   <div class="titlebar"><div></div><div class="window-dots"><i></i><i></i><i></i></div></div>
   <div id="root">
     <aside data-pane="sidebar" class="sidebarCol"><div>
-      <div class="brand"><span class="brand-mark">✦</span><span class="brand-copy"><strong>DeepSeek Harness</strong><small>ASTRAL WORKSPACE</small></span></div>
+      <div class="brand"><span class="brand-mark">VII</span><span class="brand-copy"><strong>DeepSeek Harness</strong><small>FIELD CODEX</small></span></div>
       <button class="newSession">＋ 新建会话</button>
-      <div class="tree-label">RECENT GRIMOIRES</div>
+      <div class="tree-label">CHAPTER INDEX</div>
       <div role="tree"><div role="treeitem" aria-selected="true">森林灵体与意识层</div><div role="treeitem">元素四方阵笔记</div><div role="treeitem">代码审阅 · 夜间</div><div role="treeitem">风之精灵研究</div></div>
-      <div class="sidebar-footer">AETHER LINK<br>STABLE · 96%</div>
+      <div class="sidebar-footer">FIELD CODEX<br>FOLIO VII · OPEN</div>
     </div></aside>
     <main data-pane="conversation" class="centerCol">
-      <header class="header"><nav><button class="tabActive">对话</button><span>文件</span><span>终端</span></nav><span class="header-note">SCHIERKE / ASTRAL GRIMOIRE</span></header>
+      <header class="header"><nav><button class="tabActive">正文</button><span>附录</span><span>墨迹</span></nav><span class="header-note">SCHIERKE / FIELD FOLIO VII</span></header>
       <section data-phase="hero">
-        <div class="hero-copy"><div class="eyebrow">FOREST OF THE ASTRAL WORLD · 霊樹</div><h1 class="headline">今天想探索<br>什么知识？</h1><p class="lede">像翻开一本被森林气息浸染的魔导书。把问题写下来，让思绪沿着灵界的微光慢慢显形。</p><div data-composer-card><textarea placeholder="向史尔基写下你的问题……"></textarea><div class="composer-tools"><div class="tool-row"><button>＋</button><button>⌘</button></div><button class="primary">发送 ✦</button></div></div></div>
+        <div class="hero-copy"><div class="eyebrow">FIELD FOLIO VII · INTERSTICE NOTES</div><h1 class="headline">在页边写下<br>今天的观察。</h1><p class="lede">翻开一册正在生长的灵界田野志。问题是观察条目，回答是页边批注，代码则像压在附录里的深色墨片。</p><div data-composer-card><textarea placeholder="记录一个现象、问题或咒式……"></textarea><div class="composer-tools"><div class="tool-row"><button>＋</button><button>⌘</button></div><div class="selector-row"><button id="effort-selector">Max⌃</button><button id="model-selector">gpt-5.6-luna⌃</button></div><button class="primary">记入本页</button></div><div class="composer-listbox effort-list" role="listbox" aria-label="Effort"><div role="option" aria-selected="true">Max</div><div role="option">High</div><div role="option">Medium</div></div><div class="composer-listbox model-list" role="listbox" aria-label="Model"><div role="option" aria-selected="true">gpt-5.6-luna</div><div role="option">gpt-5.3-codex-spark</div><div role="option">grok-4.6</div></div></div></div>
         <div class="active-chat" data-chat-flow><div class="userRow"><div class="bubble">帮我解释这段异步状态机，并找出竞态条件。</div></div><div class="answer"><div class="eyebrow">ASTRAL READING / ANALYSIS</div><p>这段逻辑里有两个独立的完成信号，它们都可能改写同一份状态。先把事件按发生顺序展开，再为每次提交绑定唯一的代次，就能避免旧结果覆盖新结果。</p><div class="reasoning">观察：清理函数只撤销了监听器，但没有让进行中的 Promise 失效。解决方案是在提交时捕获 generation，并在落盘前核对当前代次。</div><div data-terminal><span style="color:#b8d4b2">const</span> generation = ++currentGeneration<br>if (generation !== currentGeneration) return</div></div></div>
       </section>
-      <div class="qa-strip"><button id="mode">切换明暗</button><button id="phase">切换对话</button><button id="open-menu">操作菜单</button><button id="open-settings">设置弹窗</button></div>
+      <div class="qa-strip"><button id="mode">切换明暗</button><button id="phase">切换对话</button><button id="art">切换图版</button><button id="open-menu">操作菜单</button><button id="open-settings">设置弹窗</button></div>
     </main>
   </div>
-  <div class="settings" data-slot="sidebar.settings"><div role="presentation"><div role="dialog" aria-modal="true"><h2>灵界魔导书设置</h2><p>检查浅色与暗色模式下的层级、标签和交互状态。</p><div class="setting-row"><span>降低动态效果</span><button disabled>已跟随系统</button></div></div></div></div>
-  <div class="menu-popover" role="menu"><div role="menuitem">重命名魔导书</div><div role="menuitem">固定到侧栏</div><div role="menuitem">导出会话</div></div>
+  <div class="settings" data-slot="sidebar.settings"><div role="presentation"><div role="dialog" aria-modal="true"><h2>附录 · 装帧设置</h2><p>检查浅色与暗色模式下的层级、标签和交互状态。</p><div class="setting-row"><span>降低动态效果</span><button disabled>已跟随系统</button></div></div></div></div>
+  <div class="menu-popover" role="menu"><div role="menuitem">重命名条目</div><div role="menuitem">夹入书签</div><div role="menuitem">导出本页</div></div>
   <script type="module">
     import { activateSkin } from '../shared/runtime.js'
     let dispose
@@ -99,12 +106,22 @@
     const params = new URLSearchParams(location.search)
     const dark = params.get('mode') === 'dark'
     const active = params.get('phase') === 'active'
+    const noArt = params.get('art') === 'off'
+    const capture = params.has('capture')
+    const popover = params.get('popover')
     document.body.toggleAttribute('data-ds-dark-theme', dark)
+    document.body.toggleAttribute('data-schierke-no-art', noArt)
+    document.body.toggleAttribute('data-qa-capture', capture)
     document.body.classList.toggle('is-active', active)
     const phase = document.querySelector('[data-phase]')
     phase.dataset.phase = active ? 'active' : 'hero'
+    document.querySelector('.model-list').classList.toggle('is-open', popover === 'model')
+    document.querySelector('.effort-list').classList.toggle('is-open', popover === 'effort')
     document.querySelector('#mode').onclick = () => document.body.toggleAttribute('data-ds-dark-theme')
     document.querySelector('#phase').onclick = () => { document.body.classList.toggle('is-active'); phase.dataset.phase = document.body.classList.contains('is-active') ? 'active' : 'hero' }
+    document.querySelector('#art').onclick = () => document.body.toggleAttribute('data-schierke-no-art')
+    document.querySelector('#model-selector').onclick = () => document.querySelector('.model-list').classList.toggle('is-open')
+    document.querySelector('#effort-selector').onclick = () => document.querySelector('.effort-list').classList.toggle('is-open')
     document.querySelector('#open-menu').onclick = () => document.querySelector('.menu-popover').classList.toggle('is-open')
     document.querySelector('#open-settings').onclick = () => document.querySelector('.settings').classList.toggle('is-open')
     addEventListener('beforeunload', () => dispose?.())
