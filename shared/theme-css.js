@@ -46,7 +46,7 @@ body[data-dsh-schierke-interface] {
   --dsw-shadow-lv2: var(--schierke-shadow);
   --dsw-specific-input-major: rgba(249, 246, 237, 0.92);
   --dsw-specific-selector: rgba(231, 228, 214, 0.96);
-  --dsw-specific-sidebar-fill: rgba(16, 26, 21, 0.98);
+  --dsw-specific-sidebar-fill: rgba(236, 235, 225, 0.98);
 }
 
 body[data-dsh-schierke-interface][data-ds-dark-theme] {
@@ -200,6 +200,23 @@ body[data-dsh-schierke-interface] [data-skin-chrome='schierke-titlebar-brand']::
 }
 
 body[data-dsh-schierke-interface] :is([data-pane='sidebar'], [class*='sidebarCol']) {
+  --dsw-alias-label-primary: #2b2b27;
+  --dsw-alias-label-secondary: #625f57;
+  --dsw-alias-label-tertiary: #807c70;
+  --dsw-alias-label-caption: #9a9588;
+  --dsw-alias-border-l1: rgba(75, 61, 96, 0.14);
+  --dsw-alias-border-l2: rgba(75, 61, 96, 0.23);
+  --dsw-alias-interactive-bg-hover: rgba(111, 148, 122, 0.1);
+  --dsw-alias-interactive-bg-active: rgba(117, 99, 143, 0.16);
+  position: relative;
+  z-index: 6;
+  color: #2b2b27;
+  border-right: 1px solid rgba(75, 61, 96, 0.24);
+  background: #ecebe1;
+  box-shadow: 12px 0 38px rgba(49, 45, 38, 0.1), inset -2px 0 rgba(117, 99, 143, 0.1);
+}
+
+body[data-dsh-schierke-interface][data-ds-dark-theme] :is([data-pane='sidebar'], [class*='sidebarCol']) {
   --dsw-alias-label-primary: #eff2e9;
   --dsw-alias-label-secondary: #c2c9bc;
   --dsw-alias-label-tertiary: #96a093;
@@ -208,10 +225,8 @@ body[data-dsh-schierke-interface] :is([data-pane='sidebar'], [class*='sidebarCol
   --dsw-alias-border-l2: rgba(184, 212, 178, 0.23);
   --dsw-alias-interactive-bg-hover: rgba(151, 191, 158, 0.1);
   --dsw-alias-interactive-bg-active: rgba(139, 116, 164, 0.22);
-  position: relative;
-  z-index: 6;
   color: #eff2e9;
-  border-right: 1px solid rgba(142, 174, 147, 0.38);
+  border-right-color: rgba(142, 174, 147, 0.38);
   background: #101a15;
   box-shadow: 12px 0 38px rgba(8, 14, 11, 0.25), inset -2px 0 rgba(117, 99, 143, 0.14);
 }
@@ -219,6 +234,13 @@ body[data-dsh-schierke-interface] :is([data-pane='sidebar'], [class*='sidebarCol
 body[data-dsh-schierke-interface] :is([data-pane='sidebar'], [class*='sidebarCol']) > div {
   position: relative;
   overflow: hidden;
+  background:
+    radial-gradient(circle at 18% 12%, rgba(111, 148, 122, 0.12), transparent 24%),
+    repeating-linear-gradient(135deg, transparent 0 31px, rgba(75, 61, 96, 0.025) 31px 32px),
+    linear-gradient(180deg, #f5f1e6, #e3e4d8 74%);
+}
+
+body[data-dsh-schierke-interface][data-ds-dark-theme] :is([data-pane='sidebar'], [class*='sidebarCol']) > div {
   background:
     radial-gradient(circle at 18% 12%, rgba(142, 178, 148, 0.16), transparent 24%),
     repeating-linear-gradient(135deg, transparent 0 31px, rgba(205, 220, 199, 0.025) 31px 32px),
@@ -230,11 +252,15 @@ body[data-dsh-schierke-interface] :is([data-pane='sidebar'], [class*='sidebarCol
   position: absolute;
   right: -14px;
   bottom: 98px;
-  color: rgba(184, 212, 178, 0.055);
+  color: rgba(75, 61, 96, 0.065);
   font: 500 54px/1 Georgia, serif;
   letter-spacing: 0.16em;
   transform: rotate(-90deg);
   pointer-events: none;
+}
+
+body[data-dsh-schierke-interface][data-ds-dark-theme] :is([data-pane='sidebar'], [class*='sidebarCol']) > div::before {
+  color: rgba(184, 212, 178, 0.055);
 }
 
 body[data-dsh-schierke-interface] :is([data-pane='sidebar'], [class*='sidebarCol']) > div > * {
@@ -243,6 +269,11 @@ body[data-dsh-schierke-interface] :is([data-pane='sidebar'], [class*='sidebarCol
 }
 
 body[data-dsh-schierke-interface] button[class*='brand'] > svg {
+  color: #4b3d60;
+  filter: drop-shadow(0 0 8px rgba(75, 61, 96, 0.14));
+}
+
+body[data-dsh-schierke-interface][data-ds-dark-theme] button[class*='brand'] > svg {
   color: #dfe9d9;
   filter: drop-shadow(0 0 8px rgba(184, 212, 178, 0.18));
 }
